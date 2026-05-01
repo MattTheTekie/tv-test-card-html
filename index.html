@@ -30,9 +30,24 @@
     svg {
       pointer-events: none;
     }
+
+        .hide-cursor {
+            cursor: none;
+            height: 200px;
+            width: 300px;
+            background-color: #ff6b6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+        }
+    </style>
   </style>
 </head>
 <body>
+    <div class="hide-cursor">
   <img src="testcard1.png" alt="Example SVG">
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
@@ -52,7 +67,7 @@
       </text>
     </g>
   </svg>
-
+</div>
   <script src="clock.js"></script>
 
   <audio autoplay loop>
