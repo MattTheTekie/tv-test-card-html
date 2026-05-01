@@ -20,6 +20,30 @@
 	  </g>
 	</svg>
     <script src="clock.js"></script>
+  <script>
+    function goFullscreen() {
+      const el = document.documentElement;
+
+      if (el.requestFullscreen) {
+        el.requestFullscreen();
+      } else if (el.mozRequestFullScreen) { // Firefox older versions
+        el.mozRequestFullScreen();
+      } else if (el.webkitRequestFullscreen) { // Chrome/Safari
+        el.webkitRequestFullscreen();
+      } else if (el.msRequestFullscreen) { // IE/Edge
+        el.msRequestFullscreen();
+      }
+    }
+
+    // Firefox blocks automatic fullscreen without user interaction.
+    // Trigger immediately on first click or keypress.
+    window.addEventListener("load", () => {
+      document.body.addEventListener("click", goFullscreen, { once: true });
+      document.body.addEventListener("keydown", goFullscreen, { once: true });
+    });
+
+    document.getElementById("startBtn").addEventListener("click", goFullscreen);
+  </script>
     <audio autoplay>
 	<source src="testcard.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
